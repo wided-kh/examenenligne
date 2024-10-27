@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Teacher Signup</title>
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          font-family: 'Arial', sans-serif;
+          background: url('https://www.mlfmonde.org/wp-content/uploads/2022/07/banniere-resultat-examens-764-%C3%97-300-px-1.png') no-repeat center center fixed;
+          background-size: cover;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+      }
+
+      .content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-grow: 1;
+      }
+
+      .container {
+          width: 400px;  /* La largeur du formulaire */
+      }
+
+      form {
+          padding: 40px;
+          background: rgba(54, 3, 65, 0.8);
+          border-radius: 15px;
+          box-shadow: 0 15px 30px rgba(207, 27, 192, 0.5);
+          animation: fadeIn 0.5s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+              transform: translateY(-20px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      h3 {
+          color: #4d082e;
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      label {
+          color: #ffffff;  /* Labels en blanc */
+      }
+
+      .form-control {
+          width: calc(100% - 20px);
+          margin-bottom: 15px;
+          border: 2px solid #ecf0f1;
+          padding: 10px;
+          border-radius: 5px;
+          outline: none;
+          transition: border-color 0.25s;
+      }
+
+      .form-control:focus {
+          border-color: #ff69b4;  /* Rose vif pour le focus */
+      }
+
+      .btn {
+          border: 0;
+          background: #ff69b4;
+          display: block;
+          margin: 20px auto;
+          padding: 14px 30px;
+          outline: none;
+          color: white;
+          border-radius: 5px;
+          transition: background 0.25s, transform 0.25s;
+          cursor: pointer;
+      }
+
+      .btn:hover {
+          background: #c71585;  /* Rose plus foncé au survol */
+          transform: scale(1.05);  /* Animation de mise à l'échelle au survol */
+      }
+
+      footer {
+          background-color: rgba(54, 3, 65, 0.9);
+          color: white;
+          text-align: center;
+          padding: 10px 0;
+          width: 100%;
+          position: relative;
+          bottom: 0;
+      }
+  </style>
+</head>
+<body>
+  {% include "exam/navbar.html" %}
+
+
+
+<br><br><br>
+<div class="container">
+<h3 style="text-align: center;">Teacher Signup Form</h3>
+<form method="POST" autocomplete="off" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="first_name">First Name</label>
+        {% render_field userForm.first_name|attr:'required:true'  class="form-control"  placeholder="First Name" %}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="last_name">Last Name</label>
+        {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="Last Name" %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="mobile">Contact</label>
+        {% render_field teacherForm.mobile|attr:'required:true'  class="form-control" placeholder="Contact Number" %}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="address">Address</label>
+        {% render_field teacherForm.address|attr:'required:true'  class="form-control" placeholder="Address" %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="username">Username</label>
+        {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" %}
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Password</label>
+        {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" %}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-12">
+        <label for="profile_pic">Profile Picture</label>
+        {% render_field teacherForm.profile_pic|attr:'required:true' class="form-control" placeholder="" %}
+      </div>
+      
+    </div>
+
+
+  <button type="submit" class="btn btn-success" style="border-radius:0px;">Sign Up</button>
+</form>
+</div>
+
+
+<br><br>
+{% include "exam/footer.html" %}
+</body>
+</html>

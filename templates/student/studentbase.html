@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Gill Sans", sans-serif;
+      background: #4B2C6F; /* Couleur de fond violet foncé */
+      color: #f0f0f0; /* Couleur de texte claire pour le contraste */
+    }
+
+    header {
+      position: fixed;
+      background: #530849; /* Couleur d'arrière-plan du header */
+      padding: 20px;
+      width: 100%;
+      z-index: 1;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2); /* Effet d'ombre pour le header */
+    }
+
+    .left_area h3 {
+      color: #fff;
+      margin: 0px;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .left_area span {
+      color: #b380a6; /* Couleur d'accentuation */
+    }
+
+    .logout_btn {
+      padding: 10px 15px;
+      background: #641250; /* Couleur de fond du bouton de déconnexion */
+      text-decoration: none;
+      float: right;
+      margin-top: -30px;
+      margin-right: 40px;
+      border-radius: 5px; /* Coins arrondis */
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      transition: background 0.3s, transform 0.2s; /* Effets de transition */
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.3); /* Ombre pour le bouton */
+    }
+
+    .logout_btn:hover {
+      background: #5A0731;
+      transform: scale(1.05); /* Légèrement grandir au survol */
+    }
+
+    .sidebar {
+      background: #410337; /* Couleur d'arrière-plan de la sidebar */
+      margin-top: 70px;
+      padding-top: 30px;
+      position: fixed;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      transition: left 0.5s; /* Transition fluide pour la sidebar */
+      box-shadow: 2px 0 10px rgba(255, 255, 255, 0.1); /* Effet d'ombre pour la sidebar */
+    }
+
+    .sidebar .profile_image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%; /* Image circulaire */
+      margin-bottom: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Ombre pour l'image de profil */
+    }
+
+    .sidebar h4 {
+      color: #fff; /* Couleur de texte pour le titre de la sidebar */
+      margin-top: 0;
+      font-weight: 600; /* Police légèrement plus épaisse */
+    }
+
+    .sidebar a {
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 60px;
+      text-decoration: none;
+      padding-left: 40px;
+      box-sizing: border-box;
+      transition: background 0.5s, padding-left 0.3s; /* Transition au survol */
+      position: relative; /* Pour l'élément pseudo */
+    }
+
+    .sidebar a:hover {
+      background: #631151; /* Couleur d'arrière-plan au survol */
+      color: white;
+      padding-left: 60px; /* Légère décalage à gauche */
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Effet d'ombre */
+    }
+
+    .sidebar i {
+      padding-right: 10px;
+      transition: transform 0.3s; /* Transition pour l'icône */
+    }
+
+    .sidebar a:hover i {
+      transform: translateX(-5px); /* Légère mouvement au survol */
+    }
+
+    label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      font-size: 20px;
+      margin: 5px 0;
+      transition: color 0.5s;
+    }
+
+    label #sidebar_btn:hover {
+      color: #6b6b6b;
+    }
+
+    #check:checked~.sidebar {
+      left: -190px; /* Cacher la sidebar */
+    }
+
+    #check:checked~.sidebar a span {
+      display: none; /* Cacher le texte sur la réduction */
+    }
+
+    #check:checked~.sidebar a {
+      font-size: 20px;
+      margin-left: 170px;
+      width: 80px; /* Réduire la largeur sur la réduction */
+    }
+
+    .content {
+      margin-left: 250px;
+      background: url(background.png) no-repeat center center;
+      background-size: cover;
+      height: 100vh;
+      transition: margin-left 0.5s; /* Transition fluide pour le contenu */
+      animation: fadeIn 1s ease-in-out; /* Animation de fondu pour le contenu */
+    }
+
+    #check:checked~.content {
+      margin-left: 60px; /* Ajuster le contenu sur la réduction */
+    }
+
+    #check {
+      display: none; /* Cacher la case à cocher */
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .left_area h3 {
+      font-size: 22px; /* Taille de police */
+      font-family: 'Sacramento', cursive; /* Police cursive pour élégance */
+      color: #ffffff; /* Couleur du texte */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Ombre de texte pour effet 3D */
+      transition: transform 0.3s, color 0.3s; /* Transition pour l'effet au survol */
+  }
+  
+  .left_area h3:hover {
+      color: #3f0736; /* Couleur au survol */
+      transform: scale(1.1) rotateY(5deg); /* Animation de mise à l'échelle et rotation */
+  }
+  
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+</head>
+
+<body>
+
+  <input type="checkbox" id="check">
+  <!--header area start-->
+  <header>
+    <label for="check">
+      <i style="left: 200px;margin-top: 17px;" class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+      <h3>ExamMaster</h3>
+    </div>
+    <div class="right_area">
+      <a href="/logout" class="logout_btn" style="border-radius:0px;">Logout</a>
+    </div>
+  </header>
+  <!--header area end-->
+  <!--sidebar start-->
+  <div class="sidebar">
+    <center>
+      <img src="{% static 'image/student.png' %}" class="profile_image" alt="">
+      <h4>{{ request.user.first_name }}</h4>
+      <h6 style="color: rgb(255, 255, 255);">( Student )</h6>
+    </center>
+
+    <a href="/student/student-dashboard"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
+    <a href="/student/student-exam"><i class="fas fa-book"></i><span>Examination</span></a>
+    <a href="/student/student-marks"><i class="fas fa-sort-numeric-up"></i><span>My Marks</span></a>
+  </div>
+  <!--sidebar end-->
+
+  <!--content start-->
+  <div class="content">
+    <br><br><br><br><br>
+    {% block content %}
+    {% endblock content %}
+    <br><br><br>
+    {% include "exam/footer.html" %}
+  </div>
+  <!--content end-->
+</body>
+
+</html>

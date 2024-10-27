@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Teacher Portal - Welcome</title>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: url('https://www.mlfmonde.org/wp-content/uploads/2022/07/banniere-resultat-examens-764-%C3%97-300-px-1.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .jumbotron {
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: center;
+      color: #f5f5f5;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .jumbotron h1 {
+      font-size: 3em;
+      color: #d63384; /* Pink color */
+      margin-bottom: 10px;
+    }
+
+    .jumbotron p.lead {
+      font-size: 1.2em;
+      color: #4b0082; /* Dark purple for main paragraph */
+    }
+
+    .jumbotron p.info {
+      font-size: 1em;
+      color: #000000; /* Black color for the specific line */
+    }
+
+    .btn {
+      border: none;
+      padding: 12px 25px;
+      color: white;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.25s, transform 0.25s;
+      margin: 10px 5px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #d63384; /* Pink color */
+    }
+
+    .btn-primary:hover {
+      background-color: #b0246a; /* Darker pink on hover */
+    }
+
+    .btn-success {
+      background-color: #4b0082; /* Dark purple */
+    }
+
+    .btn-success:hover {
+      background-color: #2c004b; /* Darker purple on hover */
+    }
+
+    footer {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      color: #f5f5f5;
+      padding: 15px 0;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  {% include "exam/navbar.html" %}
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome, Teacher</h1>
+    <p class="lead">Join our Online Examination System</p>
+    <hr class="my-4">
+    <p class="info">Select below to create an account or log in</p> <!-- Black color applied here -->
+    <p class="lead">
+      <a class="btn btn-primary" href="teachersignup" role="button">Create Your Account</a>
+      <a class="btn btn-success" href="teacherlogin" role="button">Log In Now</a>
+    </p>
+  </div>
+  {% include "exam/footer.html" %}
+</body>
+
+</html>

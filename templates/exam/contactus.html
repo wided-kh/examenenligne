@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff; /* White text color for better contrast */
+            text-align: center; /* Center the text */
+            background-color: #f5f5f5; /* Light background color for contrast */
+        }
+
+        .navbar,
+        .footer {
+            background-color: #4a154c; /* Dark purple color for navbar/footer */
+            color: white; /* White text */
+            padding: 15px 0; /* Vertical padding */
+            position: fixed; /* Fixed position */
+            width: 100%; /* Full width */
+            left: 0; /* Align to the left */
+            z-index: 1000; /* Ensure it is above other elements */
+        }
+
+        .navbar {
+            top: 0; /* Align to the top */
+        }
+
+        .footer {
+            bottom: 0; /* Align to the bottom */
+        }
+
+        .background {
+            background-image: url("https://www.mlfmonde.org/wp-content/uploads/2022/07/banniere-resultat-examens-764-%C3%97-300-px-1.png"); /* Background image */
+            background-size: cover; /* Cover the entire section */
+            background-position: center; /* Center the background image */
+            height: calc(100vh - 120px); /* Full height minus navbar and footer height */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+            padding: 20px; /* Add padding for spacing */
+        }
+
+        .container {
+            background-color: rgba(74, 21, 76, 0.8); /* Dark purple background with transparency */
+            padding: 40px; /* Padding inside the container */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            width: 100%; /* Full width */
+            max-width: 600px; /* Max width for the form */
+            transition: transform 0.3s; /* Smooth transition for hover effect */
+        }
+
+        .container:hover {
+            transform: scale(1.02); /* Slightly enlarge the container on hover */
+        }
+
+        h3 {
+            font-size: 26px; /* Font size for the message */
+            color: #f8c472; /* Light color for heading */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+
+        p {
+            font-size: 20px; /* Font size for the text */
+            color: #fff; /* White text color */
+            margin-bottom: 30px; /* Space below the paragraph */
+        }
+
+        input[type="submit"] {
+            background-color: #5c1e5f; /* Dark purple button color */
+            color: #fff; /* White text */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 12px 30px; /* Padding inside the button */
+            cursor: pointer; /* Pointer cursor for button */
+            display: block; /* Make button block element */
+            margin: 20px auto 0; /* Center the button */
+            font-size: 18px; /* Font size for the button */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4a154c; /* Darker purple on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include "exam/navbar.html" %}
+
+    <div class="background">
+        <div class="container">
+            <h3 class='alert alert-success'>Please fill up the form to contact us</h3>
+
+            <form method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                    <br>
+                    <input type="submit" value="Submit" class='btn btn-primary'>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% include "exam/footer.html" %}
+</body>
+
+</html>
+

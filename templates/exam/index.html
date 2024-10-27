@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background color */
+            font-family: Arial, sans-serif; /* Font for the body */
+        }
+
+        .jumbotron {
+            background-image: url('https://www.mlfmonde.org/wp-content/uploads/2022/07/banniere-resultat-examens-764-%C3%97-300-px-1.png'); /* Background image */
+            background-size: cover; /* Cover the entire section */
+            background-position: center; /* Center the background */
+            color: white; /* Text color */
+            margin-bottom: 0; /* Remove margin */
+            padding: 4rem 2rem; /* Generous padding */
+            border-radius: 0; /* Square corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        }
+
+        .image-fill {
+            background-image: url('https://www.mlfmonde.org/wp-content/uploads/2022/07/banniere-resultat-examens-764-%C3%97-300-px-1.png'); /* Image de fond */
+            background-size: cover; /* Cover the entire section */
+            background-position: center; /* Center the background */
+            height: 100vh; /* Occupé toute la hauteur de la vue */
+            display: flex; /* Utiliser flexbox pour centrer le contenu */
+            justify-content: center; /* Centrer horizontalement */
+            align-items: center; /* Centrer verticalement */
+        }
+
+        .jumbotron h2 {
+            font-size: 3.5rem; /* Large font size */
+            font-weight: bold; /* Bold text */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for 3D effect */
+        }
+
+        .jumbotron p {
+            font-size: 1.25rem; /* Adjusted font size */
+            margin: 0.5rem 0; /* Margin between paragraphs */
+            opacity: 0.9; /* Slight transparency */
+        }
+
+        .btn-info {
+          background-color: #5C4B8A; /* Couleur de fond violet foncé */
+          border: none; /* Supprimer la bordure */
+          color: white; /* Couleur du texte */
+          padding: 0.75rem 1.5rem; /* Ajout de padding pour le rendre plus grand */
+          font-size: 1.25rem; /* Taille de la police */
+          transition: background-color 0.3s ease, transform 0.2s ease; /* Transition douce pour l'effet de survol */
+      }
+      
+      .btn-info:hover {
+          background-color: #4B3C72; /* Couleur de survol */
+          transform: scale(1.05); /* Agrandir légèrement le bouton au survol */
+      }
+      
+      .btn-info:focus {
+          outline: none; /* Supprimer le contour par défaut */
+          box-shadow: 0 0 0 0.2rem rgba(92, 75, 138, 0.5); /* Ajouter une ombre portée lors du focus */
+      }
+      
+      
+        /* Styles pour le footer, pour éviter les marges */
+        footer {
+            margin: 0; /* Supprimer la marge */
+            padding: 1rem 0; /* Optionnel: ajuster le padding du footer */
+        }
+    </style>
+</head>
+
+<body>
+    {% include "exam/navbar.html" %}
+    <br>
+    <section class="image-fill">
+        <div class="container text-center"> <!-- Ajout de text-center pour centrer le contenu -->
+            <h2 class="display-3">Online Examination System</h2>
+            <p class="display-4 d-none d-sm-block">Participate in your exams with ease!</p>
+            <p class="lead">Sign up now to embark on your first online examination experience.</p>
+
+            <p><strong>Start your journey here:</strong></p>
+            <a href="/student/studentsignup" class="btn btn-lg btn-info" style="background-color: #5C4B8A; border-radius: 0%; border: none;">
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i> Sign Up as Student
+          </a>
+          
+
+            <br><br><br>
+        </div>
+    </section>
+    {% include "exam/footer.html" %}
+</body>
+
+</html>

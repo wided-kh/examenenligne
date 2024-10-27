@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light background for contrast */
+        }
+
+        .navbar,
+        .footer {
+            background-color: #4a154c; /* Dark purple color for navbar/footer */
+            color: white; /* White text */
+            padding: 10px 0; /* Vertical padding */
+        }
+
+        .content {
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: calc(100vh - 120px); /* Full height minus navbar and footer height */
+            text-align: center; /* Center text */
+        }
+
+        .jumbotron {
+            background-color: rgba(255, 255, 255, 0.9); /* Light background for jumbotron */
+            padding: 30px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            max-width: 600px; /* Maximum width */
+            width: 100%; /* Full width */
+        }
+
+        .jumbotron h1 {
+            color: #333; /* Dark text color */
+        }
+
+        .alert {
+            margin: 20px 0; /* Spacing around alert */
+        }
+
+        .btn-purple {
+            background-color: #5c4d8b; /* Dark purple button color */
+            color: white; /* White text */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px 20px; /* Padding inside the button */
+            cursor: pointer; /* Pointer cursor for button */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        .btn-purple:hover {
+            background-color: #4a154c; /* Darker purple on hover */
+        }
+    </style>
+</head>
+
+<body>
+    {% include "exam/navbar.html" %}
+
+    <div class="content">
+        <div class="jumbotron">
+            <h1 class="display-4">Hello {{ request.user.first_name }},</h1>
+            <p class="lead">Your account has not been <b>ACTIVATED</b> yet!<br>
+            You are waiting for approval from the administrator.<br>
+            Soon, you'll be able to access your account after approval.</p>
+            <hr class="my-4">
+            <p class="lead">
+                <a class="btn btn-purple btn-lg" href="/logout" role="button">Logout Now</a>
+            </p>
+        </div>
+    </div>
+
+    {% include "exam/footer.html" %}
+</body>
+</html>

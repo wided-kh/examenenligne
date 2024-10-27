@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <style media="screen">
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #fff; /* White text for contrast */
+      text-align: center; /* Center align text */
+      background-color: #4a154c; /* Dark purple background */
+      background-image: url("https://www.mlfmonde.org/wp-content/uploads/2022/07/banniere-resultat-examens-764-%C3%97-300-px-1.png"); /* Background image */
+      background-size: cover; /* Cover the entire page */
+      background-position: center; /* Center the background image */
+      height: 100vh; /* Full height */
+      display: flex; /* Use flexbox to center content */
+      flex-direction: column; /* Stack children vertically */
+      justify-content: center; /* Center content vertically */
+    }
+
+    .jumbotron {
+      background-color: rgba(74, 21, 76, 0.9); /* Dark purple with transparency */
+      border-radius: 10px; /* Rounded corners */
+      padding: 30px; /* Padding inside jumbotron */
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+      max-width: 600px; /* Maximum width of jumbotron */
+      margin: auto; /* Center horizontally */
+    }
+
+    .jumbotron h1 {
+      font-size: 36px; /* Font size for heading */
+      color: #fff; /* White text */
+      margin-bottom: 15px; /* Space below heading */
+    }
+
+    .jumbotron p {
+      font-size: 20px; /* Font size for paragraph */
+      color: #fff; /* White text */
+      margin-bottom: 20px; /* Space below paragraph */
+    }
+
+    .btn {
+      border-radius: 5px; /* Rounded button corners */
+      padding: 10px 20px; /* Padding for buttons */
+      font-size: 18px; /* Font size for button text */
+      background-color: #907791; /* Light purple button */
+      color: #fff; /* White text color */
+      border: none; /* No border */
+    }
+
+    .btn:hover {
+      background-color: #6f4e77; /* Darker purple on hover */
+    }
+
+    .footer {
+      position: fixed; /* Fixed position */
+      width: 100%; /* Full width */
+      bottom: 0; /* Align to the bottom */
+      background-color: rgba(74, 21, 76, 0.9); /* Dark purple footer */
+      color: white; /* White text */
+      text-align: center; /* Center text in footer */
+      padding: 10px 0; /* Padding in footer */
+    }
+  </style>
+
+</head>
+
+<body>
+
+  {% include "exam/navbar.html" %}
+  
+  <div class="jumbotron">
+    <h1 class="display-4">Your message was sent successfully!</h1>
+    <p class="lead">We will respond to your feedback soon.</p>
+    <hr class="my-4">
+    <p>Check other features of the website!</p>
+    <p class="lead">
+      <a class="btn" href="/" role="button">HOME</a>
+    </p>
+  </div>
+
+  {% include "exam/footer.html" %}
+</body>
+
+</html>

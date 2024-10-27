@@ -1,0 +1,107 @@
+{% extends 'student/studentbase.html' %}
+{% block content %}
+{% load static %}
+
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <style media="screen">
+        body {
+            background-color: #f8f8f8; /* Light background color */
+            color: #4a154c; /* Dark purple text color */
+            font-family: Arial, sans-serif; /* Font family */
+        }
+
+        a:link, a:visited {
+            text-decoration: none; /* No underline on links */
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+            color: #7a4a92; /* Lighter purple on hover */
+        }
+
+        h6 {
+            text-align: center;
+            font-size: 20px; /* Font size for headings */
+            color: #ffffff; /* White text for panel title */
+        }
+
+        .panel {
+            border: none; /* Remove default panel border */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .panel-heading {
+            background-color: #4a154c; /* Dark purple background */
+            border-radius: 10px 10px 0 0; /* Rounded top corners */
+            padding: 15px; /* Padding inside the heading */
+        }
+
+        .table {
+            margin-top: 20px; /* Margin above the table */
+            background-color: #ffffff; /* White background for table */
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #f1f1f1; /* Light grey background on hover */
+        }
+
+        th {
+            background-color: #4a154c; /* Dark purple background for table headers */
+            color: #ffffff; /* White text for headers */
+            text-align: center; /* Center text in headers */
+        }
+
+        td {
+            text-align: center; /* Center text in cells */
+        }
+
+        .btn-success {
+            background-color: #5cb85c; /* Bootstrap success color */
+            border-color: #4cae4c; /* Darker border for buttons */
+            border-radius: 0px; /* No rounded corners */
+        }
+
+        .btn-success:hover {
+            background-color: #4cae4c; /* Darker green on hover */
+            border-color: #398439; /* Darker border on hover */
+        }
+        
+        .container {
+            margin-top: 50px; /* Space above the container */
+            margin-bottom: 50px; /* Space below the container */
+        }
+    </style>
+</head>
+
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h6 class="panel-title">My Marks</h6>
+        </div>
+        <table class="table table-hover table-bordered" id="dev-table">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            {% for t in courses %}
+            <tr>
+                <td>{{ t.course_name }}</td>
+                <td>
+                    <a class="btn btn-success btn-sm" href="{% url 'check-marks' t.id %}">
+                        <span class="glyphicon glyphicon-eye-open"></span> View Marks
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+{% endblock content %}

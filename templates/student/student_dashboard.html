@@ -1,0 +1,142 @@
+{% extends 'student/studentbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        background: #f0e1f3; /* Dark background for contrast */
+        color: #ffffff;
+      }
+
+      a:link {
+        text-decoration: none;
+      }
+
+      .order-card {
+        color: rgb(255, 255, 255);
+      }
+
+      .bg-c-blue {
+        background: #5c4b8a; /* Dark purple */
+      }
+
+      .bg-c-green {
+        background: #7b2cbf; /* Pink */
+      }
+
+      .bg-c-yellow {
+        background: #8d0655; /* Different color for variety */
+      }
+
+      .bg-c-pink {
+        background: #9d50bb; /* Light purple */
+      }
+
+      .card {
+        perspective: 1000px; /* 3D effect */
+      }
+
+      .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+      }
+
+      .card:hover .card-inner {
+        transform: rotateY(10deg);
+      }
+
+      .card .card-block {
+        padding: 25px;
+      }
+
+      .order-card i {
+        font-size: 26px;
+      }
+
+      .f-left {
+        float: left;
+      }
+
+      .f-right {
+        float: right;
+      }
+
+      .logout-icon {
+        font-size: 30px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #ff6f61; /* Logout icon color */
+        transition: color 0.3s;
+      }
+
+      .logout-icon:hover {
+        color: #ff3d3d; /* Change color on hover */
+      }
+
+      header {
+        left: 0px;
+        right: 0px;
+      }
+
+      /* Animation */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .container {
+        animation: fadeIn 1s ease-in-out;
+      }
+    </style>
+</head>
+
+<br><br>
+
+<div class="container">
+  <a href="{% url 'logout' %}" class="logout-icon" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+  <div class="row">
+
+    <div class="col-md-4 col-xl-6">
+      <div class="card bg-c-blue order-card">
+        <div class="card-inner">
+          <div class="card-block">
+            <h6 class="m-b-20">Available Exams</h6>
+            <h2 class="text-right"><i class="fas fa-book f-left"></i><span>{{total_course}}</span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xl-6">
+      <div class="card bg-c-yellow order-card">
+        <div class="card-inner">
+          <div class="card-block">
+            <h6 class="m-b-20">Total Questions</h6>
+            <h2 class="text-right"><i class="fas fa-question-circle f-left"></i><span>{{total_question}}</span></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+{% endblock content %}

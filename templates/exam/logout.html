@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Logout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff; /* White text color for better contrast */
+            text-align: center; /* Center the text */
+        }
+
+        .navbar, .footer {
+            background-color: #4a154c; /* Dark purple color for navbar/footer */
+            color: white; /* White text */
+            padding: 10px 0; /* Vertical padding */
+            position: fixed; /* Fixed position */
+            width: 100%; /* Full width */
+            left: 0; /* Align to the left */
+        }
+
+        .navbar {
+            top: 0; /* Align to the top */
+        }
+
+        .footer {
+            bottom: 0; /* Align to the bottom */
+        }
+
+        .background {
+            background-image: url("https://www.mlfmonde.org/wp-content/uploads/2022/07/banniere-resultat-examens-764-%C3%97-300-px-1.png"); /* Background image */
+            background-size: cover; /* Cover the entire section */
+            background-position: center; /* Center the background image */
+            height: calc(100vh - 120px); /* Full height minus navbar and footer height */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+        }
+
+        .container {
+            background-color: rgba(74, 21, 76, 0.8); /* Dark purple background with transparency */
+            padding: 30px; /* Padding inside the container */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        }
+
+        h2 {
+            font-size: 32px; /* Font size for the message */
+            color: #907791; /* Dark purple color */
+            margin-bottom: 10px; /* Space below the heading */
+        }
+
+        p {
+            font-size: 20px; /* Font size for the text */
+            color: #fff; /* White text color */
+            margin-bottom: 30px; /* Space below the paragraph */
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+    {% include "exam/navbar.html" %}
+
+    <div class="background">
+        <div class="container">
+            <h2>Logout Successful</h2>
+            <p>Thank you </p>
+        </div>
+    </div>
+
+    {% include "exam/footer.html" %}
+</body>
+</html>
